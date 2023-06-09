@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/user");
+const authWithToken = require("../middleware/authWithToken");
 require("./mongoose");
 
 const app = express();
@@ -25,17 +26,17 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-// app.post("/signup", async (req, res) => {
-//   try {
-//     const user = new User(req.body);
-//     const token = await user.generateAuthToken();
-//     const userObjet = user.toObject();
-//     delete userObjet.tokens;
-//     res.status(201).send({ user: userObjet, token });
-//   } catch (error) {
-//     res.status(400).send();
-//   }
-// });
+app.post("/signout", authWithToken, async (req, res) => {
+  try {
+    req.user.tokens = req.user.tokens.filter(
+      (token) => token.token !== req.token
+    );
+    await req.user.save();
+    req.res.send();
+  } catch (error) {
+    res.status(500).send();
+  }
+});
 
 const port = process.env.port || 3000;
 app.listen(port, () => {

@@ -22,6 +22,7 @@ UserSchema.methods.generateAuthToken = async function () {
   const token = jwt.sign({ id: user._id.toString() }, "SecretKey");
 
   user.tokens = user.tokens.concat({ token });
+
   await user.save();
 
   return token;
