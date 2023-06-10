@@ -1,10 +1,13 @@
 const express = require("express");
+const cors = require("cors");
+
 const User = require("../models/user");
 const authWithToken = require("../middleware/authWithToken");
 const Message = require("../models/message");
 require("./mongoose");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.post("/signin", async (req, res) => {
