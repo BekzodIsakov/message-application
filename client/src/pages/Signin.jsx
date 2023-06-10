@@ -13,7 +13,6 @@ const Signin = () => {
       const url = import.meta.env.DEV
         ? import.meta.env.VITE_DEV_URL
         : import.meta.env.VITE_PROD_URL;
-      console.log({ url, devMode: import.meta.env.DEV });
       const response = await fetch(url + "/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
