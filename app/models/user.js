@@ -28,5 +28,11 @@ UserSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-const User = new mongoose.model("user", UserSchema);
+UserSchema.virtual("messages", {
+  ref: "Message",
+  localField: "_id",
+  foreignField: "recipient",
+});
+
+const User = new mongoose.model("User", UserSchema);
 module.exports = User;
