@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -40,6 +40,11 @@ const Signin = () => {
       console.error(error);
     }
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigateTo("/");
+  });
 
   return (
     <div style={{ maxWidth: "25rem" }} className='mx-auto'>

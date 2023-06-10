@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Col, Row, Button, ToastContainer, Toast } from "react-bootstrap";
 import Select from "react-select";
+import getUrl from "../utils/getUrl";
 
 const customStyles = {
   control: (styles) => ({
@@ -31,9 +32,7 @@ const MessageForm = () => {
   const [sendingMessage, setSendingMessage] = useState(false);
   const [toastType, setToastType] = useState("");
 
-  const url = import.meta.env.DEV
-    ? import.meta.env.VITE_DEV_URL
-    : import.meta.env.VITE_PROD_URL;
+  const url = getUrl();
   const token = localStorage.getItem("token");
 
   async function fetchRecipients() {
@@ -101,7 +100,7 @@ const MessageForm = () => {
   return (
     <div className='rounded-2 overflow-hidden'>
       <header className='bg-secondary py-2 px-3'>
-        <h2 className='fs-6 mb-0 text-light'>New message</h2>
+        <h2 className='fs-6 mb-0 text-light'>Send a message</h2>
       </header>
 
       <Form className='bg-body-secondary px-3 py-3' onSubmit={handleFormSubmit}>
