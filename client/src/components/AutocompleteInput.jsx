@@ -5,8 +5,7 @@ function shouldRenderSuggestions() {
   return true;
 }
 
-const AutocompleteInput = ({ options = [], onSelect }) => {
-  const [selected, setSelected] = useState("");
+const AutocompleteInput = ({ options = [], selected, onSelect }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   function escapeRegexCharacters(str) {
@@ -14,15 +13,6 @@ const AutocompleteInput = ({ options = [], onSelect }) => {
   }
 
   function getSuggestions(value) {
-    // const inputValue = value.trim().toLowerCase();
-    // const inputLength = inputValue.length;
-
-    // return inputLength === 0
-    //   ? []
-    //   : options.filter(
-    //       (option) =>
-    //         option.label.toLowerCase().slice(0, inputLength) === inputValue
-    //     );
     const escapedValue = escapeRegexCharacters(value.trim());
     const regex = new RegExp("^" + escapedValue, "i");
 
@@ -30,7 +20,7 @@ const AutocompleteInput = ({ options = [], onSelect }) => {
   }
 
   const getSuggestionValue = (suggestion) => {
-    setSelected(suggestion.label);
+    // setSelected(suggestion.label);
     onSelect(suggestion.label);
     return suggestion.label;
   };
@@ -47,11 +37,9 @@ const AutocompleteInput = ({ options = [], onSelect }) => {
   };
 
   const inputProps = {
-    // placeholder: "Select",
     value: selected,
     onChange: (event, { newValue }) => {
-      setSelected(newValue);
-      onSelect(selected);
+      onSelect(newValue);
     },
     className: "form-control",
   };

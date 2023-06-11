@@ -30,7 +30,7 @@ UserSchema.methods.generateAuthToken = async function () {
 
 UserSchema.virtual("messages", {
   ref: "Message",
-  localField: "_id",
+  localField: "name",
   foreignField: "recipient",
 });
 
