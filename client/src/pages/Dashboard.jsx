@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import ReceivedMessages from "../components/ReceivedMessages";
 import MessageForm from "../components/MessageForm";
+import { useUserContext } from "../context/Provider";
 
 const Dashboard = () => {
-  const [signingOut, setSigningOut] = useState(false);
+  const [signOutLoading, setSignoutLoading] = useState(false);
+
+  const [userName] = useUserContext();
 
   const navigateTo = useNavigate();
 
@@ -26,29 +29,32 @@ const Dashboard = () => {
   }
 
   async function handleSignOutButton() {
-    setSigningOut(true);
+    setSignoutLoading(true);
     try {
       const response = await signOutUser();
       if (!response.ok) throw new Error();
-      localStorage.removeItem("token");
+      localStorage.clear();
       return navigateTo("/signin");
     } catch (error) {
       console.error(error);
     } finally {
-      setSigningOut(false);
+      setSignoutLoading(false);
     }
   }
 
   return (
     <div>
-      <div className='text-end'>
-        <Button
-          variant='light mb-3'
-          disabled={signingOut}
-          onClick={handleSignOutButton}
-        >
-          {signingOut ? "Processing" : "Sign out"}
-        </Button>
+      <div className='d-flex justify-content-between mb-3'>
+        <h1>{userName}</h1>
+        <div>
+          <Button
+            variant='outline-danger'
+            disabled={signOutLoading}
+            onClick={handleSignOutButton}
+          >
+            {signOutLoading ? "Processing..." : "Sign out"}
+          </Button>
+        </div>
       </div>
       <MessageForm />
       <ReceivedMessages />

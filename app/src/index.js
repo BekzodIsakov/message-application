@@ -58,7 +58,6 @@ app.post("/message", authWithToken, async (req, res) => {
   });
   try {
     await message.save();
-    console.log({ message });
     res.send(message);
   } catch (error) {
     res.status(400).send(error);

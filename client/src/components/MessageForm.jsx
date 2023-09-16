@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Form, Col, Row, Button, ToastContainer, Toast } from "react-bootstrap";
 import AutocompleteInput from "./AutocompleteInput";
+import { useUserContext } from "../context/Provider";
 
 const MessageForm = () => {
-  const [recipients, setRecipients] = useState([]);
-  const [selectedRecipient, setSelectedRecipient] = useState("");
+  const [contacts, setContacts] = useState([]);
+  const [recipient, setRecipient] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
@@ -12,9 +13,11 @@ const MessageForm = () => {
 
   const token = localStorage.getItem("token");
 
+  const [userName] = useUserContext();
+
   const url = import.meta.env.VITE_URL;
 
-  async function fetchRecipients() {
+  async function fetchContacts() {
     const response = await fetch(url + "/users", {
       headers: {
         Authorization: "Bearer " + token,
@@ -22,11 +25,11 @@ const MessageForm = () => {
     });
 
     const users = await response.json();
-    const _recipients = users.map((user) => ({
+    const contacts = users.map((user) => ({
       name: user.name,
       id: user._id,
     }));
-    setRecipients(_recipients);
+    setContacts(contacts);
   }
 
   async function sendMessage() {
@@ -39,20 +42,18 @@ const MessageForm = () => {
       body: JSON.stringify({
         title,
         message,
-        recipient: selectedRecipient,
+        sender: userName,
+        recipient,
       }),
     });
+
     return response;
   }
 
   async function handleFormSubmit(e) {
     e.preventDefault();
-    console.log({
-      title,
-      message,
-      recipient: selectedRecipient,
-    });
     setSendingMessage(true);
+    
     try {
       const response = await sendMessage();
       await response.json();
@@ -60,7 +61,7 @@ const MessageForm = () => {
         setToastType("success");
         setTitle("");
         setMessage("");
-        setSelectedRecipient("");
+        setRecipient("");
       } else throw new Error();
     } catch (error) {
       console.error(error);
@@ -71,13 +72,13 @@ const MessageForm = () => {
   }
 
   useEffect(() => {
-    fetchRecipients();
+    fetchContacts();
   }, []);
 
   return (
     <div className='rounded-2 overflow-hidden'>
       <header className='bg-secondary py-3 px-3'>
-        <h2 className='fs-6 mb-0 text-light'>Send a message</h2>
+        <h2 className='fs-5 mb-0 text-light'>Send message</h2>
       </header>
 
       <Form className='bg-body-secondary px-3 py-3' onSubmit={handleFormSubmit}>
@@ -91,11 +92,11 @@ const MessageForm = () => {
           </Form.Label>
           <Col sm={10}>
             <AutocompleteInput
-              options={recipients.map((recipient) => ({
+              options={contacts.map((recipient) => ({
                 label: recipient.name,
               }))}
-              selected={selectedRecipient}
-              onSelect={(selectedValue) => setSelectedRecipient(selectedValue)}
+              selected={recipient}
+              onSelect={(selectedValue) => setRecipient(selectedValue)}
             />
           </Col>
         </Form.Group>

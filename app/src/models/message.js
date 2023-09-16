@@ -11,6 +11,9 @@ const MessageSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
+  sender: {
+    type: String,
+  },
   recipient: {
     type: String,
     required: true,
