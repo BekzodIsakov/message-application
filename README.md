@@ -1,4 +1,4 @@
-# Message app
+# Messaging app
 
 [Live demo]()
 
@@ -8,7 +8,7 @@
 
 ## Technologies used
 
-[![Technologies](https://skillicons.dev/icons?i=react,vite,bootstrap,express,nodejs,md&theme=light)](https://skillicons.dev)
+[![Technologies](https://skillicons.dev/icons?i=react,vite,bootstrap,express,nodejs&theme=light)](https://skillicons.dev)
 
 The app is similar to a messaging service. Initially, user needs to login so
 that the app can save user's name. Once user is taken to the main page after
