@@ -14,8 +14,3 @@ your name on the auth page, you can enter the name of another contact/user you
 want to send a message to. The contact may not exist at the time of sending the
 message. But when someone enters the app with that contact/user name, he/she can
 see messages sent to his/her name. A contact/user can send message to oneself.
-First, messages were saved inside
-[MongoDB Atlas](https://www.mongodb.com/docs/atlas) but as the app was created
-for practicing purpose, messages are now saved as
-[Markdown documents](https://www.markdownguide.org/getting-started/#what-is-markdown)
-(.md files)
