@@ -4,8 +4,6 @@
 
 ![Main page](/client/src/assets/main-page.png "Main page")
 
-![Vite.js logo](https://cdn.worldvectorlogo.com/logos/express-109.svg "Vite.js")
-
 The app is similar to a messaging service. Initially, you need to login so that
 the app can save your name. Once you taken to the main page after entering your
 name on the auth page, you can input the name of the so-called contact you want
@@ -17,3 +15,6 @@ this app was created for practicing, messages are now saved as Markdown
 documents (.md files)
 
 ## Technologies used
+
+![Vite.js logo](https://cdn.worldvectorlogo.com/logos/express-109.svg "Vite.js")
+<img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="600" height="300">
