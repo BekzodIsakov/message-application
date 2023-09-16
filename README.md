@@ -1,10 +1,7 @@
 # Message app
 
-[Live demo]() [YouTueb](https://youtu.be/FZFtxXfsJJE)
-
-<a href="https://youtu.be/FZFtxXfsJJE" target="_blank"><img src="https://youtu.be/FZFtxXfsJJE" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-[![IMAGE ALT TEXT HERE](https://youtu.be/FZFtxXfsJJE/0.jpg)](https://youtu.be/FZFtxXfsJJE)
+[Live demo]() 
+[YouTube](https://youtu.be/FZFtxXfsJJE)
 
 ![Main page](/client/src/assets/main-page.png "Main page")
 
