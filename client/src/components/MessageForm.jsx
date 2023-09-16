@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Form, Col, Row, Button, ToastContainer, Toast } from "react-bootstrap";
-import getUrl from "../utils/getUrl";
 import AutocompleteInput from "./AutocompleteInput";
 
 const MessageForm = () => {
@@ -8,15 +7,14 @@ const MessageForm = () => {
   const [selectedRecipient, setSelectedRecipient] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
-  const [fetchingRecipients, setFetchingRecipients] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false);
   const [toastType, setToastType] = useState("");
 
-  const url = getUrl();
   const token = localStorage.getItem("token");
 
+  const url = import.meta.env.VITE_URL;
+
   async function fetchRecipients() {
-    setFetchingRecipients(true);
     const response = await fetch(url + "/users", {
       headers: {
         Authorization: "Bearer " + token,
@@ -29,7 +27,6 @@ const MessageForm = () => {
       id: user._id,
     }));
     setRecipients(_recipients);
-    setFetchingRecipients(false);
   }
 
   async function sendMessage() {

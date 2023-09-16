@@ -10,9 +10,7 @@ const Signin = () => {
 
   async function authenticateUser() {
     try {
-      const url = import.meta.env.DEV
-        ? import.meta.env.VITE_DEV_URL
-        : import.meta.env.VITE_PROD_URL;
+      const url = import.meta.env.VITE_URL;
       const response = await fetch(url + "/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

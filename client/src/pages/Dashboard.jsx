@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import ReceivedMessages from "../components/ReceivedMessages";
 import MessageForm from "../components/MessageForm";
-import getUrl from "../utils/getUrl";
 
 const Dashboard = () => {
   const [signingOut, setSigningOut] = useState(false);
@@ -12,7 +11,7 @@ const Dashboard = () => {
   const navigateTo = useNavigate();
 
   async function signOutUser() {
-    const url = getUrl();
+    const url = import.meta.env.VITE_URL;
     const token = localStorage.getItem("token");
 
     const response = await fetch(url + "/signout", {

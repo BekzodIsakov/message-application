@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { Accordion, Stack } from "react-bootstrap";
-import getUrl from "../utils/getUrl";
 
 const ReceivedMessages = () => {
   const [fetchingMessages, setFetchingMessages] = useState(false);
   const [userMessages, setUserMessages] = useState([]);
 
-  const url = getUrl();
   const token = localStorage.getItem("token");
   async function handleFetchMessages() {
     setFetchingMessages(true);
@@ -22,6 +20,8 @@ const ReceivedMessages = () => {
   }
 
   async function fetchUserMessages() {
+    const url = import.meta.env.VITE_URL;
+
     try {
       const response = await fetch(url + "/messages", {
         headers: {
