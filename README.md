@@ -19,10 +19,3 @@ documents (.md files)
 <!-- ![Vite.js logo](https://cdn.worldvectorlogo.com/logos/express-109.svg "Vite.js") -->
 
 [![Technologies](https://skillicons.dev/icons?i=react,vite,bootstrap,express,nodejs,md&theme=light)](https://skillicons.dev)
-
-<img align="left" title="React.js" alt="React.js logo" src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="60" />
-<img align="left" title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/vitejs.svg" width="60">
-<img align="left" title="Bootstrap 5" alt="Bootstrap 5 logo" src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" width="60">
-<img align="left" title="Node.js" alt="Node.js logo" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" width="60">
-<img align="left" title="Express.js" alt="Express.js logo" src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="60">
-<img align="left" title="Markdown" alt="Markdown logo" src="https://cdn.worldvectorlogo.com/logos/markdown.svg" width="60">
