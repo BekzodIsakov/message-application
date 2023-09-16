@@ -17,4 +17,5 @@ documents (.md files)
 ## Technologies used
 
 ![Vite.js logo](https://cdn.worldvectorlogo.com/logos/express-109.svg "Vite.js")
-<img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="100" height="100">
+<img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="200" height="100">
+<img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="200" height="100">
