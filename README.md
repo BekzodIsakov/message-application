@@ -1,6 +1,7 @@
 # Message app
 
 [Live demo]() 
+---
 [YouTube](https://youtu.be/FZFtxXfsJJE)
 
 ![Main page](/client/src/assets/main-page.png "Main page")
