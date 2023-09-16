@@ -18,7 +18,7 @@ documents (.md files)
 
 ![Vite.js logo](https://cdn.worldvectorlogo.com/logos/express-109.svg "Vite.js")
 
-[<img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="30">]
+[<img align="left" title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="30" />]
 <img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/vitejs.svg" width="200" height="100">[hello]
 <img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" width="200" height="100">
 <img title="Vite.js" alt="Vite.js logo" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" width="200" height="100">
