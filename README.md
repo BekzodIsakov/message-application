@@ -1,8 +1,8 @@
 # Messaging app
 
-[Live demo](https://messaging-service.netlify.app)
+[App link](https://messaging-service.netlify.app)
 
-[YouTube](https://youtu.be/FZFtxXfsJJE)
+[Video demo](https://youtu.be/J9RpvKb7Qb4)
 
 ![Main page](/client/src/assets/main-page.png "Main page")
 
